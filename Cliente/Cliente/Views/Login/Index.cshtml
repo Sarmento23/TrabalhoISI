@@ -1,0 +1,17 @@
+﻿@{
+}
+
+<fieldset>
+    <legend>User DashBoard</legend>
+    <fieldset class="fHorizontalCenter">
+        <label style="font-size:18px">Welcome </label>
+        <label> 
+        @if (User.Identity.IsAuthenticated) 
+        { 
+            @User.Identity.Name; 
+        }
+        </label><br/>
+    </fieldset>
+</fieldset>
+
+    

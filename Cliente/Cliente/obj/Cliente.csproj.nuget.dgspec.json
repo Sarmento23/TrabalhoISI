@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2 - netcore 5\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj": {}
+    "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj": {}
   },
   "projects": {
-    "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2 - netcore 5\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj": {
+    "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2 - netcore 5\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj",
+        "projectUniqueName": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj",
         "projectName": "Cliente",
-        "projectPath": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2 - netcore 5\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj",
-        "packagesPath": "C:\\Users\\Henrique Sarmento\\.nuget\\packages\\",
-        "outputPath": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2 - netcore 5\\TrabalhoISI\\Cliente\\Cliente\\obj\\",
+        "projectPath": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2\\TrabalhoISI\\Cliente\\Cliente\\Cliente.csproj",
+        "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
+        "outputPath": "C:\\IPCA\\3ºano\\1ºSemestre\\ISI\\Trabalhos\\Trabalho2\\TrabalhoISI\\Cliente\\Cliente\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Henrique Sarmento\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +39,36 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

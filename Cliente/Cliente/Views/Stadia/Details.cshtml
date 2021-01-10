@@ -1,0 +1,57 @@
+﻿@model Cliente.Models.Stadium
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Stadium</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+    </dl>
+</div>
+<a asp-controller="Sectors" asp-action="Create">New Sector</a>
+<h4>Sectors</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Linhas</th>
+            <th>Colunas</th>
+            <th>Capacidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Sectors)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linhas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colunas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>item.Capacidade)
+                
+            </td>
+            <td>
+                <a asp-controller="Sectors" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="Sectors" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Sectors" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
