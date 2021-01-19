@@ -21,12 +21,16 @@ namespace Server.Controllers
         }
 
 
+        /// <summary>
+        /// Login do utilizador
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
-        
         public async Task<ActionResult<Object>> Authenticate([FromBody]Login model)
         {
             // Recupera o usuário
-            var user = _context.users.FirstOrDefault(c => c.Username.Equals(model.Username) && c.Password.Equals(model.Password));
+            var user =  _context.users.FirstOrDefault(c => c.Username.Equals(model.Username) && c.Password.Equals(model.Password));
 
             // Verifica se o usuário existe
             if (user == null)

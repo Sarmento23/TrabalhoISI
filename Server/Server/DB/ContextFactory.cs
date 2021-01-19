@@ -1,0 +1,19 @@
+﻿using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore;
+
+
+namespace Server.Objects
+{
+    class ContextFactory : IDesignTimeDbContextFactory<DBManagement>
+    {
+        //JWT - JSON web token
+        public DBManagement CreateDbContext(string[] args)
+        {
+            string connectionString = @"Server=.\SQLEXPRESS;Database=ISITable;Trusted_Connection=True;";
+            var builder = new DbContextOptionsBuilder<DBManagement>();
+
+            builder.UseSqlServer(connectionString);
+            return new DBManagement(builder.Options);
+        }
+    }
+}

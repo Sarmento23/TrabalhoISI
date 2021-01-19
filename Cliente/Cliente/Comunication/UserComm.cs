@@ -15,7 +15,7 @@ namespace Cliente.Comunication
         private static string postUsers = "Users/";
 
 
-        public static async Task<List<User>> Getusers()
+        public static async Task<List<User>> GetUsers()
         {
             List<User> aux = null;
             try
@@ -129,7 +129,7 @@ namespace Cliente.Comunication
                         if (response.IsSuccessStatusCode)
                         {
                             aux = JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
-                        }
+                        }   
                         else return null;
                     }
                 }

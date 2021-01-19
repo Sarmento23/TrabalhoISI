@@ -20,14 +20,21 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/Users
+        /// <summary>
+        /// Devolve lista de utilizadores
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> Getusers()
         {
             return await _context.users.ToListAsync();
         }
 
-        // GET: api/Users/5
+        /// <summary>
+        /// Devolve utilizador pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -41,8 +48,12 @@ namespace Server.Controllers
             return user;
         }
 
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Alteração de um utilizador
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
@@ -73,8 +84,11 @@ namespace Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Introduzir novo user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
@@ -89,7 +103,11 @@ namespace Server.Controllers
             return CreatedAtAction("GetUser", new { id = user.ID }, user);
         }
 
-        // DELETE: api/Users/5
+        /// <summary>
+        /// Apagar utilizador
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -105,6 +123,11 @@ namespace Server.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Verifica se o utilizador existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool UserExists(int id)
         {
             return _context.users.Any(e => e.ID == id);

@@ -22,7 +22,7 @@ namespace Cliente.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await UserComm.GetUsers());
         }
 
         // GET: Users/Details/5

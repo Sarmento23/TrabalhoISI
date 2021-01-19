@@ -21,8 +21,13 @@ namespace Cliente.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var events = EventComm.GetEvents();
-            return View(await events);
+            var events = await EventComm.GetEvents();
+            foreach (var item in events)
+            {
+                item.Stadium = await StadiumComm.GetStadium(item.StadiumId);
+                item.Sector = await SectorComm.GetSector(item.SectorId);
+            }
+            return View(events);
         }
 
         public async Task<IActionResult> Details(int id)
@@ -40,7 +45,7 @@ namespace Cliente.Controllers
         public async Task<IActionResult> Create()
         {
             ViewData["SectorId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
-            ViewData["StadiumId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
+            ViewData["StadiumId"] = new SelectList(await StadiumComm.GetStadiums(), "Id", "Name");
             return View();
         }
 
@@ -55,7 +60,7 @@ namespace Cliente.Controllers
                     return RedirectToAction(nameof(Index));
             }
             ViewData["SectorId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
-            ViewData["StadiumId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
+            ViewData["StadiumId"] = new SelectList(await StadiumComm.GetStadiums(), "Id", "Name");
             return View(@event);
         }
 
@@ -67,7 +72,7 @@ namespace Cliente.Controllers
                 return NotFound();
             }
             ViewData["SectorId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
-            ViewData["StadiumId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
+            ViewData["StadiumId"] = new SelectList(await StadiumComm.GetStadiums(), "Id", "Name");
             return View(@event);
         }
 
@@ -100,7 +105,7 @@ namespace Cliente.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["SectorId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
-            ViewData["StadiumId"] = new SelectList(await SectorComm.GetSectors(), "Id", "Name");
+            ViewData["StadiumId"] = new SelectList(await StadiumComm.GetStadiums(), "Id", "Name");
             return View(@event);
         }
 

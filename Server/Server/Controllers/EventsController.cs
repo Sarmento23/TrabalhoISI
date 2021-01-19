@@ -20,14 +20,12 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/Events
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> Getevents()
         {
             return await _context.events.ToListAsync();
         }
 
-        // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
@@ -41,8 +39,6 @@ namespace Server.Controllers
             return @event;
         }
 
-        // PUT: api/Events/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvent(int id, Event @event)
         {
@@ -72,8 +68,6 @@ namespace Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Events
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
@@ -87,6 +81,7 @@ namespace Server.Controllers
                 var stadiumExist = await _context.stadiums.FirstOrDefaultAsync(i => i.ID.Equals(@event.StadiumID));
                 if (stadiumExist == null)
                     return BadRequest();
+
                 var sectors = _context.sectors.Where(x => x.StadiumID.Equals(@event.StadiumID));
 
                 foreach(var item in sectors)
@@ -112,7 +107,6 @@ namespace Server.Controllers
             }
         }
 
-        // DELETE: api/Events/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {

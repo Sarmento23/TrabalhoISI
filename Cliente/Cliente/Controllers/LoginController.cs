@@ -23,14 +23,12 @@ namespace Cliente.Controllers
         }
         public IActionResult Index()
         {
-            HttpContext.SignOutAsync();
             return View();
         }
  
 
         public IActionResult Login()
         {
-            HttpContext.SignOutAsync();
             return View();
         }
 
@@ -56,7 +54,7 @@ namespace Cliente.Controllers
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
                     return RedirectToAction("Index");
                 }
-                else return RedirectToAction("Index");
+                else return RedirectToAction("Login");
             }
             catch (Exception ex)
             {

@@ -20,14 +20,21 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/Tickets
+        /// <summary>
+        /// Devolve a lista dos bilhetes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ticket>>> Gettickets()
         {
             return await _context.tickets.ToListAsync();
         }
 
-        // GET: api/Tickets/5
+        /// <summary>
+        /// Devolve o bilhete pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Ticket>> GetTicket(int id)
         {
@@ -41,8 +48,12 @@ namespace Server.Controllers
             return ticket;
         }
 
-        // PUT: api/Tickets/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Trocar informações sobre bilhete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(int id, Ticket ticket)
         {
@@ -73,8 +84,11 @@ namespace Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Tickets
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Adicionar um novo bilhete
+        /// </summary>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
@@ -84,7 +98,11 @@ namespace Server.Controllers
             return CreatedAtAction("GetTicket", new { id = ticket.ID }, ticket);
         }
 
-        // DELETE: api/Tickets/5
+        /// <summary>
+        /// Apagar o bilhete pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTicket(int id)
         {
@@ -100,6 +118,11 @@ namespace Server.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Verifica se o bilhete existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool TicketExists(int id)
         {
             return _context.tickets.Any(e => e.ID == id);

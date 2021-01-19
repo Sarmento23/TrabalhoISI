@@ -10,6 +10,7 @@ namespace Server.Token
 
     public static class TokenService
     {
+        //jwt - json web token
         public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

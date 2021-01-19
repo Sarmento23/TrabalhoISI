@@ -21,13 +21,18 @@ namespace Cliente.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var sectors = SectorComm.GetSectors();
-            return View(await sectors);
+            var sectors = await SectorComm.GetSectors();
+            foreach(var item in sectors)
+            {
+                item.Stadium = await StadiumComm.GetStadium(item.StadiumId);
+            }
+            return View(sectors);
         }
 
         public async Task<IActionResult> Details(int id)
         {
             var sector = await SectorComm.GetSector(id);
+            sector.Stadium = await StadiumComm.GetStadium(sector.StadiumId);
             if (sector == null)
             {
                 return NotFound();

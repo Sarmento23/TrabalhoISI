@@ -19,7 +19,10 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/Stadia
+        /// <summary>
+        /// Devolve a lista de todos os estádios
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Stadium>>> Getstadiums()
         {
@@ -37,7 +40,11 @@ namespace Server.Controllers
             return stadiums;
         }
 
-        // GET: api/Stadia/5
+        /// <summary>
+        /// Devolve o estádio pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Stadium>> GetStadium(int id)
         {
@@ -65,8 +72,12 @@ namespace Server.Controllers
 
         }
 
-        // PUT: api/Stadia/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Alterar dados de um estádio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="stadium"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStadium(int id, Stadium stadium)
         {
@@ -96,8 +107,11 @@ namespace Server.Controllers
             return Ok(stadium);
         }
 
-        // POST: api/Stadia
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Introduzir novo estádio
+        /// </summary>
+        /// <param name="stadium"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Stadium>> PostStadium(Stadium stadium)
         {
@@ -113,7 +127,11 @@ namespace Server.Controllers
             return CreatedAtAction("GetStadium", new { id = stadium.ID }, stadium);
         }
 
-        // DELETE: api/Stadia/5
+        /// <summary>
+        /// Apagar o estádio pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStadium(int id)
         {
@@ -128,6 +146,11 @@ namespace Server.Controllers
 
             return NoContent();
         }
+        /// <summary>
+        /// Verifica se o estádio existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool StadiumExists(int id)
         {
             return _context.events.Any(e => e.ID == id);

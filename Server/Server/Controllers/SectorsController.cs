@@ -20,14 +20,21 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/Sectors
+        /// <summary>
+        /// Devolve lista de todos os sectores
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sector>>> Getsectors()
         {
             return await _context.sectors.ToListAsync();
         }
 
-        // GET: api/Sectors/5
+        /// <summary>
+        /// Devolve Sector pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Sector>> GetSector(int id)
         {
@@ -42,6 +49,11 @@ namespace Server.Controllers
         }
 
         
+        /// <summary>
+        /// Procurar sectores pertencentes a um estádio
+        /// </summary>
+        /// <param name="idStadium"></param>
+        /// <returns></returns>
         [HttpGet("stadium/{idStadium}")]
         public async Task<ActionResult<IEnumerable<Sector>>> GetSectorsByStadiumID(int idStadium)
         {
@@ -54,8 +66,12 @@ namespace Server.Controllers
             return sector;
         }
 
-        // PUT: api/Sectors/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Alterar dados de um sector
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="sector"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSector(int id, Sector sector)
         {
@@ -85,8 +101,11 @@ namespace Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Sectors
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Introduzir novo sector
+        /// </summary>
+        /// <param name="sector"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Sector>> PostSector(Sector sector)
         {
@@ -121,7 +140,11 @@ namespace Server.Controllers
             }
         }
 
-        // DELETE: api/Sectors/5
+        /// <summary>
+        /// Apaga o sector pedido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSector(int id)
         {
@@ -137,6 +160,11 @@ namespace Server.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Verifica se o sector existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool SectorExists(int id)
         {
             return _context.sectors.Any(e => e.ID == id);
