@@ -12,12 +12,7 @@ namespace Cliente.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly ISITableContext _context;
 
-        public UsersController(ISITableContext context)
-        {
-            _context = context;
-        }
 
         // GET: Users
         public async Task<IActionResult> Index()

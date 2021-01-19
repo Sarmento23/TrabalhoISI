@@ -12,12 +12,7 @@ namespace Cliente.Controllers
 {
     public class SectorsController : Controller
     {
-        private readonly ISITableContext _context;
-
-        public SectorsController(ISITableContext context)
-        {
-            _context = context;
-        }
+    
 
         public async Task<IActionResult> Index()
         {

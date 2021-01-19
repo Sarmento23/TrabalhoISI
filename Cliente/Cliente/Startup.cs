@@ -34,7 +34,6 @@ namespace Cliente
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None;
             });
-            services.AddDbContext<ISITableContext>(p => p.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ISITable;Trusted_Connection=True;"));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
         }
 

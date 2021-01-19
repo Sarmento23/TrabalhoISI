@@ -12,13 +12,6 @@ namespace Cliente.Controllers
 {
     public class EventsController : Controller
     {
-        private readonly ISITableContext _context;
-
-        public EventsController(ISITableContext context)
-        {
-            _context = context;
-        }
-
         public async Task<IActionResult> Index()
         {
             var events = await EventComm.GetEvents();

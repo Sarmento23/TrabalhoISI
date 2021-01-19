@@ -27,12 +27,10 @@ namespace Cliente.Comunication
                         client.BaseAddress = new Uri("https://localhost:44367/");
                         client.DefaultRequestHeaders.Accept.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        //POST
                         HttpResponseMessage response = await client.GetAsync(postStadiums);
 
                         if (response.IsSuccessStatusCode)
                         {
-                            //Added
                             aux = JsonConvert.DeserializeObject<List<Stadium>>(await response.Content.ReadAsStringAsync());
                         }
                         else return null;

@@ -12,12 +12,6 @@ namespace Cliente.Controllers
 {
     public class StadiaController : Controller
     {
-        private readonly ISITableContext _context;
-
-        public StadiaController(ISITableContext context)
-        {
-            _context = context;
-        }
 
         public async Task<IActionResult> Index()
         {
